@@ -17,7 +17,9 @@
     "url": "https://github.com/piwnk/kd-redux/issues"
   },
   "homepage": "https://github.com/piwnk/kd-redux#readme",
-  "dependencies": {},
+  "dependencies": {
+    "uuid": "^3.1.0"
+  },
   "devDependencies": {
     "babel-eslint": "^8.0.2",
     "babel-loader": "^7.1.2",
