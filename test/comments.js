@@ -75,42 +75,35 @@ function comments(state = [], action) {
       ];
 
     case REMOVE_COMMENT:
-      return Object.assign({}, state, {
-        comments: state.filter(comment => comment.id !== action.id)
-      });
+      return state.filter(comment => comment.id !== action.id);
+
 
     case EDIT_COMMENT:
-      return Object.assign({}, state, {
-        comments: state.comments.map(comment => (
+      return state.map(comment => (
           {
             id: comment.id,
             text: comment.id === action.id ? action.text : comment.text ,
             votes: comment.votes,
           }
-        ))
-      });
+        ));
 
     case THUMB_UP_COMMENT:
-      return Object.assign({}, state, {
-        comments: state.comments.map(comment => (
+      return state.map(comment => (
           {
             id: comment.id,
             text: comment.text,
             votes: comment.id === action.id ? comment.votes + 1 : comment.votes
           }
-        ))
-      });
+        ));
 
     case THUMB_DOWN_COMMENT:
-      return Object.assign({}, state, {
-        comments: state.comments.map(comment => (
+      return state.map(comment => (
           {
             id: comment.id,
             text: comment.text,
             votes: comment.id === action.id ? comment.votes - 1 : comment.votes
           }
-        ))
-      });
+        ));
 
     default:
       return state;
