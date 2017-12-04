@@ -9,7 +9,7 @@ import {
 
 
 // ACTIONS
-function addComment(text) {
+export function addComment(text) {
   return {
     type: ADD_COMMENT,
     text,
@@ -17,7 +17,7 @@ function addComment(text) {
   };
 }
 
-function editComment(id, text) {
+export function editComment(id, text) {
   return {
     type: EDIT_COMMENT,
     id,
@@ -25,21 +25,21 @@ function editComment(id, text) {
   };
 }
 
-function removeComment(id) {
+export function removeComment(id) {
   return {
     type: REMOVE_COMMENT,
     id
   };
 }
 
-function thumbUpComment(id) {
+export function thumbUpComment(id) {
   return {
     type: THUMB_UP_COMMENT,
     id
   };
 }
 
-function thumbDownComment(id) {
+export function thumbDownComment(id) {
   return {
     type: THUMB_DOWN_COMMENT,
     id

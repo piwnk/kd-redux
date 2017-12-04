@@ -27,10 +27,10 @@ function reducer(state = initialState, action) {
       return Object.assign({}, state, {
         comments: state.comments.map(comment => (
           comment.id !== action.id ? comment : {
-            // trzeba przebudować cały obiekt czy jakoś spreadem?
+          // trzeba przebudować cały obiekt czy jakoś spreadem?
             id: comment.id,
             text: action.text,
-            votes: comment.votes,
+            votes: comment.votes
           }
         ))
       });
@@ -77,35 +77,36 @@ function comments(state = [], action) {
     case REMOVE_COMMENT:
       return state.filter(comment => comment.id !== action.id);
 
-
     case EDIT_COMMENT:
       return state.map(comment => (
-          {
-            id: comment.id,
-            text: comment.id === action.id ? action.text : comment.text ,
-            votes: comment.votes,
-          }
-        ));
+        {
+          id: comment.id,
+          text: comment.id === action.id ? action.text : comment.text,
+          votes: comment.votes
+        }
+      ));
 
     case THUMB_UP_COMMENT:
       return state.map(comment => (
-          {
-            id: comment.id,
-            text: comment.text,
-            votes: comment.id === action.id ? comment.votes + 1 : comment.votes
-          }
-        ));
+        {
+          id: comment.id,
+          text: comment.text,
+          votes: comment.id === action.id ? comment.votes + 1 : comment.votes
+        }
+      ));
 
     case THUMB_DOWN_COMMENT:
       return state.map(comment => (
-          {
-            id: comment.id,
-            text: comment.text,
-            votes: comment.id === action.id ? comment.votes - 1 : comment.votes
-          }
-        ));
+        {
+          id: comment.id,
+          text: comment.text,
+          votes: comment.id === action.id ? comment.votes - 1 : comment.votes
+        }
+      ));
 
     default:
       return state;
   }
 }
+
+export default comments;
